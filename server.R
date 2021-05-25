@@ -4,31 +4,21 @@ library(dplyr)
 library(tidyr)
 
 ############################################
-#### This part should not be included in ui.R and server.R scripts
+#### This part should not be modified
 getCtx <- function(session) {
-  ctx <- tercenCtx(stepId = "9b7619c7-4d66-49fa-9bb3-2b06209e58e4",
-                   workflowId = "f81d245ef22a2ff192ed2533a6002ec3")
+  # retreive url query parameters provided by tercen
+  query <- parseQueryString(session$clientData$url_search)
+  token <- query[["token"]]
+  taskId <- query[["taskId"]]
+  
+  # create a Tercen context object using the token
+  ctx <- tercenCtx(taskId = taskId, authToken = token)
   return(ctx)
 }
 ####
 ############################################
 
-ui <- shinyUI(fluidPage(
-  
-  titlePanel("Histogram"),
-  
-  sidebarPanel(
-    sliderInput("plotWidth", "Plot width (px)", 200, 2000, 500),
-    sliderInput("plotHeight", "Plot height (px)", 200, 2000, 500),
-  ),
-  
-  mainPanel(
-    uiOutput("reacOut")
-  )
-  
-))
-
-server <- shinyServer(function(input, output, session) {
+shinyServer(function(input, output, session) {
   
   dataInput <- reactive({
     getValues(session)
@@ -60,5 +50,3 @@ getValues <- function(session){
   
   return(values)
 }
-
-runApp(shinyApp(ui, server))  

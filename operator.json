@@ -1,30 +1,7 @@
 {
-  "name": "Template R operator",
-  "description": "Return the medium value of a cell",
-  "tags": ["template"],
+  "name": "Mean and CV",
+  "description": "Calculates the average (mean) and the coefficient of variance(CV) of sample replicates.",
+  "tags": ["pamgene"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/template_R_operator"],
-  "properties": [
-   {
-    "kind": "StringProperty",
-    "name": "string_example",
-    "defaultValue": "example",
-    "description": "description parameter 1"
-    },
-    {
-    "kind": "EnumeratedProperty",
-    "name": "list_example",
-    "defaultValue": "value1",
-    "values": [
-      "value1",
-      "StringProperty",
-      "DoubleProperty",
-      "BooleanProperty",
-      "EnumeratedProperty"
-    ],
-    "description": "description parameter 2"
-  }
-  ]
+  "urls": ["https://github.com/tercen/mean_and_cv_shiny_operator"]
 }
-
-
