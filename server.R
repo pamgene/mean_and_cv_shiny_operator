@@ -1,4 +1,5 @@
 library(shiny)
+library(shinyjs)
 library(tercen)
 library(dplyr)
 library(tidyr)
@@ -23,6 +24,9 @@ shinyServer(function(input, output, session) {
   
   output$body <- renderUI({
     fluidPage(
+      shinyjs::useShinyjs(),
+      tags$script(HTML('setInterval(function(){ $("#hiddenButton").click(); }, 1000*30);')),
+      tags$footer(shinyjs::hidden(actionButton(inputId = "hiddenButton", label = "hidden"))),
       titlePanel("CV plots"),
       sidebarLayout(
         sidebarPanel(
