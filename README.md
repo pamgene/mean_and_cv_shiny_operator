@@ -2,18 +2,16 @@
 
 ##### Description
 
-The `mean_and_cv_shiny_operator` is used to calculates the average (mean) and the coefficient of variance(CV) of sample replicates.
+The `mean_and_cv_shiny_operator` is a shiny app used for creating CV plots, and creating a fit of the variation as function of intensity to the Two Component Error Model.
 
 ##### Usage
 
 Input projection|.
 ---|---
-`x-axis`        | type, description 
-`y-axis`        | type, description 
-`row`           | type, description 
-`column`        | type, description 
-`colors`        | type, description 
-`labels`        | type, description 
+`row`   | represents the variables (e.g. ID)
+`col`   | represents the category (e.g. barcode, Sample Name)
+`y-axis`| measurement value
+`color`	| color (e.g. barcode, Sample Name)
 
 Output relations|.
 ---|---
@@ -21,8 +19,9 @@ Output relations|.
 
 ##### Details
 
-Details on the computation.
+The operator is a shiny app for creating an CV, and SNR and an SD plot. It can also display the error model fit inside the plot. Next to this, there are inputs to set the quantile and the x and y axis limits. 
 
 ##### See Also
 
-[mean_and_cv_shiny_operator](https://github.com/tercen/export_crosstab_shiny_operator)
+[mean_operator](https://github.com/tercen/mean_operator)
+[mean_sd_operator](https://github.com/tercen/mean_sd_operator)

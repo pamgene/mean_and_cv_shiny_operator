@@ -134,7 +134,7 @@ getData <- function(session) {
   ctx <- getCtx(session)
   ctx %>% 
     select(.ci, .ri, .y) %>%
-    mutate(.color = ctx$select(ctx$colors[[1]]) %>% pull()) 
+    mutate(.color = ifelse(identical(ctx$colors, list()), "Main", ctx$select(ctx$colors[[1]]) %>% pull()))
 }
 
 #' Computes stats per cell.
