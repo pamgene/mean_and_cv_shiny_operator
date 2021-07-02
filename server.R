@@ -32,7 +32,7 @@ shinyServer(function(input, output, session) {
         sidebarPanel(
           wellPanel(
             checkboxInput("dofit", "Show error model fit", value = TRUE),
-            sliderInput("phigh", label = h5("Quantile for high signal spots"),min = 0.8, max = 1, value = 0.98),
+            sliderInput("phigh", label = h5("Quantile for high signal spots"),min = 0.8, max = 1, value = 0.95),
             sliderInput("plow" , label = h5("Quantile for low signal spots"), min = 0, max = 0.2, value = 0.05)
           ),
           wellPanel(
