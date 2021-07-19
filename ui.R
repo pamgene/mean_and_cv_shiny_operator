@@ -1,3 +1,3 @@
 library(shiny)
 
-shinyUI(uiOutput("body"))
+ui <- shinyUI(uiOutput("body"))

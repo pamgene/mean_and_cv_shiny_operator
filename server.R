@@ -20,7 +20,7 @@ getCtx <- function(session) {
 ####
 ############################################
 
-shinyServer(function(input, output, session) {
+server <- shinyServer(function(input, output, session) {
   
   output$body <- renderUI({
     fluidPage(
@@ -134,7 +134,7 @@ getData <- function(session) {
   ctx <- getCtx(session)
   ctx %>% 
     select(.ci, .ri, .y) %>%
-    mutate(.color = if(identical(ctx$colors, list())) "Main" else ctx$select(ctx$colors[[1]]) %>% pull())
+    mutate(.color = if(identical(ctx$colors, list())) "Main" else droplevels(interaction(ctx$select(ctx$colors))))
 }
 
 #' Computes stats per cell.
@@ -225,7 +225,7 @@ cvmodel <- function(aResult, pLow = 0.05, pHigh = 0.95, maxIter = 25) {
              presence = pres)
 }
 
-cvPlot <- function(aFrame, xLim = c(NA,NA),xLog = FALSE, yLim = c(0, NA), showFit = TRUE, collapse = FALSE){
+cvPlot <- function(aFrame, xLim = c(NA,NA), xLog = FALSE, yLim = c(0, NA), showFit = TRUE, collapse = FALSE){
   suppressWarnings({
     
     if (is.na(yLim[2])) yLim[2] = 0.5
