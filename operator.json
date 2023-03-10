@@ -3,5 +3,5 @@
   "description": "Calculates the average (mean) and the coefficient of variance(CV) of sample replicates.",
   "tags": ["shiny"],
   "authors": ["tercen"],
-  "urls": ["https://github.com/tercen/mean_and_cv_shiny_operator"]
+  "urls": ["https://github.com/pamgene/mean_and_cv_shiny_operator"]
 }
